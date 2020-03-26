@@ -1,3 +1,3 @@
 # Video-Library-App
-# Project Team:
+# Project Team Members:
     Roland Sankara and Ikiriza Peace
