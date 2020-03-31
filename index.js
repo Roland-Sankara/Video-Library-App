@@ -1,3 +1,8 @@
+//movie panel height
+let panel_height = document.getElementById('movie-panel-1').offsetHeight;
+document.getElementById('movie-panels').style=`height:${panel_height}px;`
+
+
 //sliding Between LogIn and SignUp pages
 
 let login = document.getElementById("Login");
@@ -14,6 +19,16 @@ function Login(){
     signup.style.left="450px";
     slide_button.style.left="0px";
 }
+function Signup_mobile(){
+    login.style.left="-480px";
+    signup.style.left="10px";
+    slide_button.style.left="110px";
+}
+function Login_mobile(){
+    login.style.left="10px";
+    signup.style.left="480px";
+    slide_button.style.left="0px";
+}
 
 //Library sliding navigation
 
@@ -24,41 +39,42 @@ let movie_panel_three= document.getElementById("movie-panel-3");
 let movie_panel_four= document.getElementById("movie-panel-4");
 let cart_page = document.getElementById("movie-cart");
 
+
 function Anime(){
     button_nav.style.left="0px";
     movie_panel_two.style="margin-top:0px;"
-    movie_panel_one.style="margin-top:30px;"
-    movie_panel_three.style="margin-top:30px;"
-    movie_panel_four.style="margin-top:30px;"
+    movie_panel_one.style="margin-top:0px;"
+    movie_panel_three.style="margin-top:0px;"
+    movie_panel_four.style="margin-top:0px;"
 }
 function Sci(){
     button_nav.style.left="120px";
-    movie_panel_two.style="margin-top:30px;"
-    movie_panel_one.style="margin-top:-730px;"
-    movie_panel_three.style="margin-top:30px;"
-    movie_panel_four.style="margin-top:30px;"
+    movie_panel_two.style="margin-top:0px;"
+    movie_panel_one.style=`margin-top:-${panel_height+25}px;`
+    movie_panel_three.style="margin-top:0px;"
+    movie_panel_four.style="margin-top:0px;"
 }
 function Action(){
     button_nav.style.left="240px";
-    movie_panel_two.style="margin-top:30px;"
-    movie_panel_one.style="margin-top:-1500px;"
-    movie_panel_three.style="margin-top:30px;"
-    movie_panel_four.style="margin-top:30px;"
+    movie_panel_two.style="margin-top:0px;"
+    movie_panel_one.style=`margin-top:-${(panel_height+25)*2}px;`
+    movie_panel_three.style="margin-top:0px;"
+    movie_panel_four.style="margin-top:0px;"
 }
 function Serie(){
     button_nav.style.left="360px";
-    movie_panel_two.style="margin-top:30px;"
-    movie_panel_one.style="margin-top:-2270px;"
-    movie_panel_three.style="margin-top:30px;"
-    movie_panel_four.style="margin-top:30px;"
+    movie_panel_two.style="margin-top:0px;"
+    movie_panel_one.style=`margin-top:-${(panel_height+25)*3}px;`
+    movie_panel_three.style="margin-top:0px;"
+    movie_panel_four.style="margin-top:0px;"
 }
 function change2(){
     button_nav.style.left="0px";
-    movie_panel_two.style="margin-top:30px;"
-    movie_panel_one.style="margin-top:-3050px;"
-    movie_panel_three.style="margin-top:30px;"
-    movie_panel_four.style="margin-top:30px;"
-    cart_page="margin-top:30px;"
+    movie_panel_two.style="margin-top:0px;"
+    movie_panel_one.style=`margin-top:-${(panel_height+20)*4}px;`
+    movie_panel_three.style="margin-top:0px;"
+    movie_panel_four.style="margin-top:0px;"
+    cart_page="margin-top:0px;"
 }
 
 // Adding and Removing to and from A movie cart
@@ -81,9 +97,9 @@ function cart(Movie_name){
      parent.appendChild(removeMovie);
      H2.style="color:red;"
      removeMovie.style="border-radius:5px; cursor:pointer; border:3px solid grey; padding:6px;"
-     text.style="width:200px; border-right:5px solid teal; padding-right:300px;"
+     text.style="border-right:5px solid teal; padding-right:50px;"
      removeMovie.addEventListener('click',()=>parent.style="display:none");
-     parent.style=" display:flex; justify-content:space-around; align-items:center; height:50px;"
+     parent.style=" display:flex; justify-content:space-around;  align-items:center; height:70px; "
      document.getElementById("Added").appendChild(parent);
      
 }
@@ -96,13 +112,13 @@ let welcome = document.getElementById("welcome_page");
 
 
 function change(){
-    Library.style="margin-left:0px;";
-    welcome.style="margin-left:-1446px";
+    Library.style="left:0px;";
+    welcome.style="left:-100%";
 }
 
 function change1(){
-    Library.style="margin-left:0px;";
-    welcome.style="margin-left:0px;";
+    Library.style="left:-100%;";
+    welcome.style="left:0px;";
 }
 
 
