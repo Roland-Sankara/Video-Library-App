@@ -10,7 +10,7 @@
 <body>
     <div id="Body">
         <!--Welcome Page-->
-        <!--<div id="welcome_page">
+        <div id="welcome_page">
 
             <div class="Account">
                 <div class="form-box">
@@ -35,7 +35,7 @@
                 </div>
             </div>
 
-        </div>-->
+        </div>
 
         <!--Library page-->
         <div id="video_Lib">
@@ -59,6 +59,7 @@
                     <h2 onclick="change2()">Movie cart</h2>
                 </div>
             </nav>
+
             <div id="movie-panels">
                 <div id="movie-panel-1" class="trans">
 
@@ -80,7 +81,7 @@
                             </div>
                             <div class="movie-view">
                                 <div class="click-box">Preview</div>
-                                <div class="click-box">Cart</div>
+                                <div class="click-box" onclick="cart('End Game')">Cart</div>
                             </div>
                         </div>
                     </div>
@@ -103,7 +104,7 @@
                             </div>
                             <div class="movie-view">
                                 <div class="click-box">Preview</div>
-                                <div class="click-box">Cart</div>
+                                <div class="click-box" onclick="cart('Infinity War')">Cart</div>
                             </div>
                         </div>
                     </div>
@@ -126,7 +127,7 @@
                             </div>
                             <div class="movie-view">
                                 <div class="click-box">Preview</div>
-                                <div class="click-box">Cart</div>
+                                <div class="click-box" onclick="cart('Scorpion')">Cart</div>
                             </div>
                         </div>
                     </div>
@@ -155,7 +156,7 @@
                             </div>
                             <div class="movie-view">
                                 <div class="click-box">Preview</div>
-                                <div class="click-box">Cart</div>
+                                <div class="click-box" onclick="cart('End Game')">Cart</div>
                             </div>
                         </div>
                     </div>
@@ -178,7 +179,7 @@
                             </div>
                             <div class="movie-view">
                                 <div class="click-box">Preview</div>
-                                <div class="click-box">Cart</div>
+                                <div class="click-box" onclick="cart('Infinity War')">Cart</div>
                             </div>
                         </div>
                     </div>
@@ -201,7 +202,7 @@
                             </div>
                             <div class="movie-view">
                                 <div class="click-box">Preview</div>
-                                <div class="click-box">Cart</div>
+                                <div class="click-box" onclick="cart('Scorpion')">Cart</div>
                             </div>
                         </div>
                     </div>
@@ -230,7 +231,7 @@
                             </div>
                             <div class="movie-view">
                                 <div class="click-box">Preview</div>
-                                <div class="click-box">Cart</div>
+                                <div class="click-box" onclick="cart('End Game')">Cart</div>
                             </div>
                         </div>
                     </div>
@@ -253,7 +254,7 @@
                             </div>
                             <div class="movie-view">
                                 <div class="click-box">Preview</div>
-                                <div class="click-box">Cart</div>
+                                <div class="click-box" onclick="cart('Infinity War')">Cart</div>
                             </div>
                         </div>
                     </div>
@@ -276,7 +277,7 @@
                             </div>
                             <div class="movie-view">
                                 <div class="click-box">Preview</div>
-                                <div class="click-box">Cart</div>
+                                <div class="click-box" onclick="cart('Scorpion')">Cart</div>
                             </div>
                         </div>
                     </div>
@@ -305,7 +306,7 @@
                             </div>
                             <div class="movie-view">
                                 <div class="click-box">Preview</div>
-                                <div class="click-box">Cart</div>
+                                <div class="click-box" onclick="cart('End Game')">Cart</div>
                             </div>
                         </div>
                     </div>
@@ -328,7 +329,7 @@
                             </div>
                             <div class="movie-view">
                                 <div class="click-box">Preview</div>
-                                <div class="click-box">Cart</div>
+                                <div class="click-box" onclick="cart('Infinity War')">Cart</div>
                             </div>
                         </div>
                     </div>
@@ -351,15 +352,29 @@
                             </div>
                             <div class="movie-view">
                                 <div class="click-box">Preview</div>
-                                <div class="click-box">Cart</div>
+                                <div class="click-box" onclick="cart('Scorpion')">Cart</div>
                             </div>
                         </div>
                     </div>
     
                 </div>
 
-                
+                <div id="movie-cart">
+                    <div id="Added"></div>
+                    <div id="borrow">
+                        <h2>Borrow</h2>
+                    </div>
+                </div>
+
+
             </div>
+
+            
+            
+            <footer>
+                <div id="copyright"><h4>&copy;2020 @vidiyo.ug</h4></div>
+                <p>OutBox.Uganda</p>
+            </footer>
 
         </div>
 

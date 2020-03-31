@@ -60,3 +60,57 @@ function change2(){
     movie_panel_four.style="margin-top:30px;"
     cart_page="margin-top:30px;"
 }
+
+// Adding and Removing to and from A movie cart
+
+function cart(Movie_name){
+    //creating a template for the each element added to cart
+     let parent = document.createElement("div");
+     let text = document.createElement('h1');
+     let name = document.createTextNode(Movie_name);
+     let removeMovie = document.createElement('div');
+     let H2 = document.createElement('h2');
+     let remove_text = document.createTextNode('Remove');
+     
+     removeMovie.id="remove"
+     H2.appendChild(remove_text);
+     text.appendChild(name);
+     removeMovie.appendChild(H2);
+     parent.classList.add('movie');
+     parent.appendChild(text);
+     parent.appendChild(removeMovie);
+     H2.style="color:red;"
+     removeMovie.style="border-radius:5px; cursor:pointer; border:3px solid grey; padding:6px;"
+     text.style="width:200px; border-right:5px solid teal; padding-right:300px;"
+     removeMovie.addEventListener('click',()=>parent.style="display:none");
+     parent.style=" display:flex; justify-content:space-around; align-items:center; height:50px;"
+     document.getElementById("Added").appendChild(parent);
+     
+}
+
+//sliding between welcome page and the library
+let Library= document.getElementById("video_Lib");
+let welcome = document.getElementById("welcome_page");
+
+
+
+
+function change(){
+    Library.style="margin-left:0px;";
+    welcome.style="margin-left:-1446px";
+}
+
+function change1(){
+    Library.style="margin-left:0px;";
+    welcome.style="margin-left:0px;";
+}
+
+
+// geting the UserName
+let user = document.getElementById("user");
+let people = []
+
+function user_name(){
+    people.push(user.value);
+    document.getElementById("a/c").innerText = `User: ${people[0]}`; 
+}
