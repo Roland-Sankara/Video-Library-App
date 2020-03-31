@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="index.css">
+    <title>&copy;Vidiyo.Outbox-2020</title>
+</head>
+<body>
+
+    <div id="welcome_page">
+
+        <div class="Account">
+            <div class="form-box">
+                <div class="button-box">
+                    <div id="slide-btn" class="btn"></div>
+                    <button type="button" class="toggle-btn" onclick="Login()">Log In</button>
+                    <button type="button" class="toggle-btn" onclick="Signup()">Sign up</button>
+                </div>
+                <form id="Login" class="input-group">
+                    <input id="user" type="text" class="input-field" placeholder="Username" required>
+                    <input type="password" class="input-field" placeholder="Enter Password" required>
+                    <input type="checkbox" class="checkbox"><span>Remember Password</span>
+                    <button type="button" class="submit-btn" onclick="change(), user_name()">Log In</button>
+                </form>
+                <form id="Signup" class="input-group">
+                    <input type="text" class="input-field" placeholder="Username" required>
+                    <input type="email" class="input-field" placeholder="E-mail" required>
+                    <input type="password" class="input-field" placeholder="Enter Password" required>
+                    <input type="checkbox" class="checkbox"><span>I agree to the terms</span>
+                    <button type="button" class="submit-btn" onclick="change()">Log In</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="video_Lib">
+
+    </div>
+
+    <script src='index.js'></script>
+    
+</body>
+</html>
