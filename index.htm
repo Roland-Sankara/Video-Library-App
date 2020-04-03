@@ -4,10 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" ></script>
+    <script src="https://kit.fontawesome.com/c26814b33e.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
-    <title>&copy;Vidiyo.Outbox-2020</title>
+    <title>&copy;Vidiyo.Outbox-Prep4-2020</title>
 </head>
 <body>
+
+    <div id="intro-page">
+        <h1 style=" color:rgba(7, 30, 46, 0.842);"><i style="color:rgb(214, 5, 5);" class="fab fa-youtube"></i> Vidiyo</h1>
+        <i style="margin-top:50px;"class="fas fa-spinner  fa-spin"></i>
+    </div>
+
     <div id="Body">
         <!--Welcome Page-->
         <div id="welcome_page">
@@ -16,21 +27,21 @@
                 <div class="form-box">
                     <div class="button-box">
                         <div id="slide-btn" class="btn"></div>
-                        <button type="button" class="toggle-btn" onclick="Login(),Login_mobile()">Log In</button>
-                        <button type="button" class="toggle-btn" onclick="Signup(),Signup_mobile()">Sign up</button>
+                        <button type="button" class="toggle-btn" onclick="Login(),Login_mobile()">LogIn</button>
+                        <button type="button" class="toggle-btn" onclick="Signup(),Signup_mobile()">SignUp</button>
                     </div>
                     <form id="Login" class="input-group">
-                        <input id="user" type="text" class="input-field" placeholder="Username" required>
-                        <input type="password" class="input-field" placeholder="Enter Password" required>
+                        <input id="user1" type="text" class="input-field" placeholder="Username" required>
+                        <input id="pass1" type="password" class="input-field" placeholder="Enter Password" max-length="4" required>
                         <input type="checkbox" class="checkbox"><span>Remember Password</span>
-                        <button type="button" class="submit-btn" onclick="change(), user_name()">Log In</button>
+                        <button type="button" class="submit-btn" onclick="validateLogin(), user_name()">Log In</button>
                     </form>
                     <form id="Signup" class="input-group">
-                        <input type="text" class="input-field" placeholder="Username" required>
-                        <input type="email" class="input-field" placeholder="E-mail" required>
-                        <input type="password" class="input-field" placeholder="Enter Password" required>
+                        <input id="user2" type="text" class="input-field" placeholder="Username" required>
+                        <input id="email" type="email" class="input-field" placeholder="E-mail" required>
+                        <input id="pass2" type="password" class="input-field" placeholder="Enter Password" max-length="4" required>
                         <input type="checkbox" class="checkbox"><span>I agree to the terms</span>
-                        <button type="button" class="submit-btn" onclick="change()">Log In</button>
+                        <button type="button" class="submit-btn" onclick="validateSignup()">Log In</button>
                     </form>
                 </div>
             </div>
@@ -40,8 +51,9 @@
         <!--Library page-->
         <div id="video_Lib">
             <header>
-                <h1 onclick="change1()">Logo</h1>
+                <h1 onclick="change1()"><i class="fab fa-youtube"></i> Vidiyo</h1>
                 <div id="search"><input id="search-input" type="text" placeholder="Search"></div>
+                <div onclick="change1()" style="font-size:40px; cursor: pointer;"><i class="fas fa-user-plus"></i></div>
             </header>
             <nav>
                 <div class="catalogue-box">
@@ -52,82 +64,102 @@
                     <button type="button" class="toggle-btn" onclick="Serie()">Series</button>
                 </div>
                 <div>
-                    <h2 id="a/c"></h2>
+                    <h2><i id="a/c" class="far fa-user"></i></h2>
                 </div>
                 
                 <div class="cart">
-                    <h2 onclick="change2()">Movie cart</h2>
+                    <h2 onclick="change2()"><i class="fas fa-shopping-cart"></i> Movie cart</h2>
                 </div>
             </nav>
+            
 
-        <div id="movie-panels" >
+            <div id="movie-panels" >
+            
+                <div id="videoPopUp" class="mfp-hide" style="max-width:75%; margin:0 auto;">
+                    <iframe id="iframe" src="" frameborder="0" allowfullscreen></iframe>
+                </div>
+
                 <div id="movie-panel-1" class="trans">
 
                     <div class='movie'>
                         <div class="movie-detail">
-                            <div class="img-container"><img class="movie-img" src="./christopher-gower-m_HRfLhgABo-unsplash.jpg" alt=""></div>
+                            <div class="img-container"><img class="movie-img" src="https://i.ytimg.com/vi/RDj8Y2K0ODA/maxresdefault.jpg" alt="Angry Birds"></div>
                             <div class="movie-description">
-                                <h2>End Game</h2>
+                                <h2>Angry Birds</h2>
                                 <p>
-                                    Loresm ipsum dolor, sit amet consectetur adipisicin
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime qui 
+                                    Released in the UK is a 2016 computer-animated comedy
+                                    based on Rovio video game series of the same name, produced by columbia Pictures
+                                    and Rovio Animation.
                                 </p>
                             </div>
                         </div>
                         
                         <div class="movie-sect2" >
                             <div class="like" >
-                                <h3>Likes</h3>
+                                <h3 onclick="like('plus1')"><i class="far fa-thumbs-up"></i></h3>
+                                <h3 class="plus" id="plus1"> </h3>
                             </div>
                             <div class="movie-view">
-                                <div class="click-box">Preview</div>
-                                <div class="click-box" onclick="cart('End Game')">Cart</div>
+                                <div  class="click-box" onclick="vidlink('#videoLink1',`https://www.youtube.com/embed/RDj8Y2K0ODA`)">
+                                    <a id="videoLink1" href="#videoPopUp"><i class="far fa-play-circle"></i></a>
+                                
+                                </div>
+                                <div id="btn-1" class="click-box" onclick="cart('Angry Birds','btn-1')"><i class="fas fa-cart-plus"></i></div>  
                             </div>
                         </div>
                     </div>
     
                     <div class='movie'>
                         <div class="movie-detail">
-                            <div class="img-container"><img class="movie-img" src="./christopher-gower-m_HRfLhgABo-unsplash.jpg" alt=""></div>
+                            <div class="img-container"><img class="movie-img" src="https://i.ebayimg.com/images/g/1joAAOSwkClcio6b/s-l300.jpg" alt="Zootopia"></div>
                             <div class="movie-description">
-                                <h2>Infinity War</h2>
+                                <h2>Zootopia</h2>
                                 <p>
-                                    Loresm ipsum dolor, sit amet consectetur adipisicin
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime qui 
+                                    Zootropolis in the UK and Ireland is a 2016 American 3D
+                                    computer animated comedy film. It details the unlikely patnership between a 
+                                    rabbit police officer and a red fox.
+                                     
                                 </p>
                             </div>
                         </div>
                         
                         <div class="movie-sect2" >
-                            <div class="like" >
-                                <h3>Likes</h3>
+                            <div class="like"  >
+                                <h3 onclick="like('plus2')"><i class="far fa-thumbs-up"></i></h3>
+                                <h3 class="plus" id="plus2"> </h3>
                             </div>
                             <div class="movie-view">
-                                <div class="click-box">Preview</div>
-                                <div class="click-box" onclick="cart('Infinity War')">Cart</div>
+                                <div class="click-box" onclick="vidlink('#videoLink2',`https://www.youtube.com/embed/jWM0ct-OLsM`)">
+                                    <a id="videoLink2" href="#videoPopUp"><i class="far fa-play-circle"></i></a>
+                                </div>
+                                <div id="btn-2" class="click-box" onclick="cart('Zootopia','btn-2')"><i class="fas fa-cart-plus"></i></div>
                             </div>
                         </div>
                     </div>
     
                     <div class='movie'>
                         <div class="movie-detail">
-                            <div class="img-container"><img class="movie-img" src="./christopher-gower-m_HRfLhgABo-unsplash.jpg" alt=""></div>
+                            <div class="img-container"><img class="movie-img" src="https://news.newonnetflix.info/wp-content/uploads/2018/09/boss-baby-season-2.jpg" alt="Boss Baby"></div>
                             <div class="movie-description">
-                                <h2>Scorpion</h2>
+                                <h2>Boss Baby</h2>
                                 <p>
-                                    Loresm ipsum dolor, sit amet consectetur adipisicin
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime qui 
+                                   Is a 2017 American computer comedy film produced by Dream 
+                                   Works Animations. The plot follows a baby who is a secret agent in the war 
+                                   for adults love between babies and puppies. 
                                 </p>
                             </div>
                         </div>
                         
                         <div class="movie-sect2" >
                             <div class="like" >
-                                <h3>Likes</h3>
+                                <h3 onclick="like('plus3')"><i class="far fa-thumbs-up"></i></h3>
+                                <h3 class="plus" id="plus3"></h3>
                             </div>
                             <div class="movie-view">
-                                <div class="click-box">Preview</div>
-                                <div class="click-box" onclick="cart('Scorpion')">Cart</div>
+                                <div class="click-box" onclick="vidlink('#videoLink3',`https://www.youtube.com/embed/k397HRbTtWI`)">
+                                    <a id="videoLink3" href="#videoPopUp"><i class="far fa-play-circle"></i></a>
+                                </div>
+                                <div id="btn-3" class="click-box" onclick="cart('Boss Baby','btn-3')"><i class="fas fa-cart-plus"></i></div>
                             </div>
                         </div>
                     </div>
@@ -140,69 +172,81 @@
 
                     <div class='movie'>
                         <div class="movie-detail">
-                            <div class="img-container"><img class="movie-img" src="./christopher-gower-m_HRfLhgABo-unsplash.jpg" alt=""></div>
+                            <div class="img-container"><img class="movie-img" src="https://i.pinimg.com/originals/93/17/c3/9317c3fb92d45a42a911ad1a2140f8b1.jpg" alt="End Game"></div>
                             <div class="movie-description">
                                 <h2>End Game</h2>
                                 <p>
-                                    Loresm ipsum dolor, sit amet consectetur adipisicin
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime qui 
+                                   Is a 2019 American superhero film based on the marvel comics superhero team 
+                                   Avengers. In the film, surving members of the Avengers and their allies attempt
+                                   tp reverse the damage caused by Thanos in infinity war.
                                 </p>
                             </div>
                         </div>
                         
                         <div class="movie-sect2" >
                             <div class="like" >
-                                <h3>Likes</h3>
+                                <h3 onclick="like('plus4')"><i class="far fa-thumbs-up"></i></h3>
+                                <h3 class="plus" id="plus4"></h3>
                             </div>
                             <div class="movie-view">
-                                <div class="click-box">Preview</div>
-                                <div class="click-box" onclick="cart('End Game')">Cart</div>
+                                <div class="click-box" onclick="vidlink('#videoLink4',`https://www.youtube.com/embed/TcMBFSGVi1c`)">
+                                    <a id="videoLink4" href="#videoPopUp"><i class="far fa-play-circle"></i></a>
+                                </div>
+                                <div id="btn-4" class="click-box" onclick="cart('End Game','btn-4')"><i class="fas fa-cart-plus"></i></div>
                             </div>
                         </div>
                     </div>
     
                     <div class='movie'>
                         <div class="movie-detail">
-                            <div class="img-container"><img class="movie-img" src="./christopher-gower-m_HRfLhgABo-unsplash.jpg" alt=""></div>
+                            <div class="img-container"><img class="movie-img" src="https://www.syfy.com/sites/syfy/files/styles/1200x680/public/2020/01/transformers-last-knight.jpg" alt="Last Knight"></div>
                             <div class="movie-description">
-                                <h2>Infinity War</h2>
+                                <h2>The Last Knight</h2>
                                 <p>
-                                    Loresm ipsum dolor, sit amet consectetur adipisicin
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime qui 
+                                    Is a 2017 American sci-fi action film based on the Transformers toy line.
+                                    Returning Transformers include Optimus Prime, Bumblebee, Hound, Drift
+                                    , Crosshairs, Whelie, Megatron and Barricade.
                                 </p>
                             </div>
                         </div>
                         
                         <div class="movie-sect2" >
                             <div class="like" >
-                                <h3>Likes</h3>
+                                <h3 onclick="like('plus5')"><i class="far fa-thumbs-up"></i></h3>
+                                <h3 class="plus" id="plus5"></h3>
                             </div>
                             <div class="movie-view">
-                                <div class="click-box">Preview</div>
-                                <div class="click-box" onclick="cart('Infinity War')">Cart</div>
+                                <div class="click-box" onclick="vidlink('#videoLink5',`https://www.youtube.com/embed/AntcyqJ6brc`)">
+                                    <a id="videoLink5" href="#videoPopUp"><i class="far fa-play-circle"></i></a>
+                                </div>
+                                <div id="btn-5" class="click-box" onclick="cart('The Last Knight','btn-5')"><i class="fas fa-cart-plus"></i></div>
                             </div>
                         </div>
                     </div>
     
                     <div class='movie'>
                         <div class="movie-detail">
-                            <div class="img-container"><img class="movie-img" src="./christopher-gower-m_HRfLhgABo-unsplash.jpg" alt=""></div>
+                            <div class="img-container"><img class="movie-img" src="https://www.nikkifreestyle.com/wp-content/uploads/2018/01/1516738582-27186338_15167305180_r.jpg" alt="Black Panther"></div>
                             <div class="movie-description">
-                                <h2>Scorpion</h2>
+                                <h2>Black Panther</h2>
                                 <p>
-                                    Loresm ipsum dolor, sit amet consectetur adipisicin
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime qui 
+                                    Is a 2018 American superhero film basedon the marvel Comics character of
+                                    the same name. T'Challa is crowned king of Wakanda following his father's death
+                                    but he is challenged by Killmonger.
                                 </p>
                             </div>
                         </div>
                         
                         <div class="movie-sect2" >
                             <div class="like" >
-                                <h3>Likes</h3>
+                                <h3 onclick="like('plus6')"><i class="far fa-thumbs-up"></i></h3>
+                                <h3 class="plus" id="plus6"></h3>
                             </div>
                             <div class="movie-view">
-                                <div class="click-box">Preview</div>
-                                <div class="click-box" onclick="cart('Scorpion')">Cart</div>
+                                <div class="click-box" onclick="vidlink('#videoLink6',`https://www.youtube.com/embed/xjDjIWPwcPU`)">
+                                    <a id="videoLink6" href="#videoPopUp"><i class="far fa-play-circle"></i></a>
+                                </div>
+                                <div id="btn-6" class="click-box" onclick="cart('Black Panther','btn-6')"><i class="fas fa-cart-plus"></i></div>
                             </div>
                         </div>
                     </div>
@@ -215,69 +259,81 @@
 
                     <div class='movie'>
                         <div class="movie-detail">
-                            <div class="img-container"><img class="movie-img" src="./christopher-gower-m_HRfLhgABo-unsplash.jpg" alt=""></div>
+                            <div class="img-container"><img class="movie-img" src="https://miro.medium.com/max/920/1*oRLTJrl8d_h2CAuR8HKpJA.png" alt="Fast and Furoius 8"></div>
                             <div class="movie-description">
-                                <h2>End Game</h2>
+                                <h2>Fast and Furious 8</h2>
                                 <p>
-                                    Loresm ipsum dolor, sit amet consectetur adipisicin
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime qui 
+                                    Is a 2017 American action film, the eigth in the Fast $ Furious franchise
+                                    Also known as the Fate of the Furious starring Vin Diesel, Dwayne Johnson,
+                                    Jason Statham.
                                 </p>
                             </div>
                         </div>
                         
                         <div class="movie-sect2" >
                             <div class="like" >
-                                <h3>Likes</h3>
+                                <h3 onclick="like('plus7')"><i class="far fa-thumbs-up"></i></h3>
+                                <h3 class="plus" id="plus7"></h3>
                             </div>
                             <div class="movie-view">
-                                <div class="click-box">Preview</div>
-                                <div class="click-box" onclick="cart('End Game')">Cart</div>
+                                <div class="click-box" onclick="vidlink('#videoLink7',`https://www.youtube.com/embed/uisBaTkQAEs`)">
+                                    <a id="videoLink7" href="#videoPopUp"><i class="far fa-play-circle"></i></a>
+                                </div>
+                                <div id="btn-7" class="click-box" onclick="cart('Fast and Furoius 8','btn-7')"><i class="fas fa-cart-plus"></i></div>
                             </div>
                         </div>
                     </div>
     
                     <div class='movie'>
                         <div class="movie-detail">
-                            <div class="img-container"><img class="movie-img" src="./christopher-gower-m_HRfLhgABo-unsplash.jpg" alt=""></div>
+                            <div class="img-container"><img class="movie-img" src="https://i0.wp.com/lylesmoviefiles.com/wp-content/uploads/2014/12/kingsman-the-secret-service-movie-poster.png?fit=680%2C478&ssl=1" alt="Kings Man"></div>
                             <div class="movie-description">
-                                <h2>Infinity War</h2>
+                                <h2>Kings Man</h2>
                                 <p>
-                                    Loresm ipsum dolor, sit amet consectetur adipisicin
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime qui 
+                                    A 2014 action spy comedy. The film follows the recriutment and Training of
+                                    Gary "Eggsy" Unwin into a secret spy organisation. Eggsy joins a mission
+                                    to tackle a global threat from Richmond Valentine. 
                                 </p>
                             </div>
                         </div>
                         
                         <div class="movie-sect2" >
                             <div class="like" >
-                                <h3>Likes</h3>
+                                <h3 onclick="like('plus8')"><i class="far fa-thumbs-up"></i></h3>
+                                <h3 class="plus" id="plus8"></h3>
                             </div>
                             <div class="movie-view">
-                                <div class="click-box">Preview</div>
-                                <div class="click-box" onclick="cart('Infinity War')">Cart</div>
+                                <div class="click-box" onclick="vidlink('#videoLink8',`https://www.youtube.com/embed/kl8F-8tR8to`)">
+                                    <a id="videoLink8" href="#videoPopUp"><i class="far fa-play-circle"></i></a>
+                                </div>
+                                <div id='btn-8' class="click-box" onclick="cart('Kings Man','btn-8')"><i class="fas fa-cart-plus"></i></div>
                             </div>
                         </div>
                     </div>
     
                     <div class='movie'>
                         <div class="movie-detail">
-                            <div class="img-container"><img class="movie-img" src="./christopher-gower-m_HRfLhgABo-unsplash.jpg" alt=""></div>
+                            <div class="img-container"><img class="movie-img" src="https://cdn.cinematerial.com/p/297x/c4h7kwe1/spider-man-far-from-home-movie-poster-md.jpg?v=1567064685" alt="Spider man back from home"></div>
                             <div class="movie-description">
-                                <h2>Scorpion</h2>
+                                <h2>Spider Man far from home</h2>
                                 <p>
-                                    Loresm ipsum dolor, sit amet consectetur adipisicin
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime qui 
+                                    Is a 2019 American Superhero film based on the Marvel comics of the same character
+                                    Spider Man. Parker is recriuted by Nick Fury and Mysterial to
+                                    face the elementals while he is on an high school trip.
                                 </p>
                             </div>
                         </div>
                         
                         <div class="movie-sect2" >
                             <div class="like" >
-                                <h3>Likes</h3>
+                                <h3 onclick="like('plus9')"><i class="far fa-thumbs-up"></i></h3>
+                                <h3 class="plus" id="plus9"></h3>
                             </div>
                             <div class="movie-view">
-                                <div class="click-box">Preview</div>
-                                <div class="click-box" onclick="cart('Scorpion')">Cart</div>
+                                <div class="click-box" onclick="vidlink('#videoLink9',`https://www.youtube.com/embed/Nt9L1jCKGnE`)">
+                                    <a id="videoLink9" href="#videoPopUp"><i class="far fa-play-circle"></i></a>
+                                </div>
+                                <div id="btn-9" class="click-box" onclick="cart('Spider-Man-far-from-home','btn-9')"><i class="fas fa-cart-plus"></i></div>
                             </div>
                         </div>
                     </div>
@@ -290,69 +346,81 @@
 
                     <div class='movie'>
                         <div class="movie-detail">
-                            <div class="img-container"><img class="movie-img" src="./christopher-gower-m_HRfLhgABo-unsplash.jpg" alt=""></div>
-                            <div class="movie-description">
-                                <h2>End Game</h2>
-                                <p>
-                                    Loresm ipsum dolor, sit amet consectetur adipisicin
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime qui 
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="movie-sect2" >
-                            <div class="like" >
-                                <h3>Likes</h3>
-                            </div>
-                            <div class="movie-view">
-                                <div class="click-box">Preview</div>
-                                <div class="click-box" onclick="cart('End Game')">Cart</div>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div class='movie'>
-                        <div class="movie-detail">
-                            <div class="img-container"><img class="movie-img" src="./christopher-gower-m_HRfLhgABo-unsplash.jpg" alt=""></div>
-                            <div class="movie-description">
-                                <h2>Infinity War</h2>
-                                <p>
-                                    Loresm ipsum dolor, sit amet consectetur adipisicin
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime qui 
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="movie-sect2" >
-                            <div class="like" >
-                                <h3>Likes</h3>
-                            </div>
-                            <div class="movie-view">
-                                <div class="click-box">Preview</div>
-                                <div class="click-box" onclick="cart('Infinity War')">Cart</div>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div class='movie'>
-                        <div class="movie-detail">
-                            <div class="img-container"><img class="movie-img" src="./christopher-gower-m_HRfLhgABo-unsplash.jpg" alt=""></div>
+                            <div class="img-container"><img class="movie-img" src="https://fanart.tv/fanart/tv/281630/tvthumb/scorpion-58a9f097badda.jpg" alt="Scorpion"></div>
                             <div class="movie-description">
                                 <h2>Scorpion</h2>
                                 <p>
-                                    Loresm ipsum dolor, sit amet consectetur adipisicin
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime qui 
+                                    Is an American Action Drama Television series created by Nick Santora of CBS
+                                    Loosely based on the life of its executive producer and self-proclaimed 
+                                    computer expert Walter O'Brien. ...sloving complex problems and saving lives.  
                                 </p>
                             </div>
                         </div>
                         
                         <div class="movie-sect2" >
                             <div class="like" >
-                                <h3>Likes</h3>
+                                <h3 onclick="like('plus10')"><i class="far fa-thumbs-up"></i></h3>
+                                <h3 class="plus" id="plus10"></h3>
                             </div>
                             <div class="movie-view">
-                                <div class="click-box">Preview</div>
-                                <div class="click-box" onclick="cart('Scorpion')">Cart</div>
+                                <div class="click-box" onclick="vidlink('#videoLink10',`https://www.youtube.com/embed/U402uMSRq1g`)">
+                                    <a id="videoLink10" href="#videoPopUp"><i class="far fa-play-circle"></i></a>
+                                </div>
+                                <div id="btn-10" class="click-box" onclick="cart('Scorpion','btn-10')"><i class="fas fa-cart-plus"></i></div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class='movie'>
+                        <div class="movie-detail">
+                            <div class="img-container"><img class="movie-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRGZOHYl2dIXQPP-mox86JVUL4N-o_n4V5-ief3Qhi4neAiFvUt&usqp=CAU" alt="Flash"></div>
+                            <div class="movie-description">
+                                <h2>Flash</h2>
+                                <p>
+                                    Is an American superhero Television Series based on Barry Allen 
+                                    a custom superhero crime-fighter with the power to move at superhuman 
+                                    speeds which he uses to fight criminals and other superhumans.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="movie-sect2" >
+                            <div class="like" >
+                                <h3 onclick="like('plus11')"><i class="far fa-thumbs-up"></i></h3>
+                                <h3 class="plus" id="plus11"></h3>
+                            </div>
+                            <div class="movie-view">
+                                <div class="click-box" onclick="vidlink('#videoLink11',`https://www.youtube.com/embed/4jwROC6JfcI`)">
+                                    <a id="videoLink11" href="#videoPopUp"><i class="far fa-play-circle"></i></a>
+                                </div>
+                                <div id="btn-11" class="click-box" onclick="cart('Flash','btn-11')"><i class="fas fa-cart-plus"></i></div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class='movie'>
+                        <div class="movie-detail">
+                            <div class="img-container"><img class="movie-img" src="https://i.pinimg.com/originals/c1/ab/49/c1ab491e41688ddd6f64ca88792504f9.jpg" alt="Game of thrones"></div>
+                            <div class="movie-description">
+                                <h2>Game of thrones 8</h2>
+                                <p>
+                                    The Eigth and the final season of the fantasy drama series Game of thrones
+                                    created by David Benioff. Its and adaption of "A son of Ice and Fire" Series
+                                    of Fanstasy Novels. Filmed in Belfast and the United Kongdom.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="movie-sect2" >
+                            <div class="like" >
+                                <h3 onclick="like('plus12')"><i class="far fa-thumbs-up"></i></h3>
+                                <h3 class='plus' id="plus12"></h3>
+                            </div>
+                            <div class="movie-view">
+                                <div class="click-box" onclick="vidlink('#videoLink12',`https://www.youtube.com/embed/rlR4PJn8b8I`)">
+                                    <a id="videoLink12" href="#videoPopUp"><i class="far fa-play-circle"></i></a>
+                                </div>
+                                <div id="btn-12" class="click-box" onclick="cart('Game-of-thrones','btn-12')"><i class="fas fa-cart-plus"></i></div>
                             </div>
                         </div>
                     </div>

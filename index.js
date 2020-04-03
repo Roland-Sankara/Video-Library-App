@@ -1,3 +1,47 @@
+//intro slide
+document.addEventListener('DOMContentLoaded',()=>{
+    setInterval(() => {
+        document.getElementById('intro-page').style.display="none"
+    }, 25000);
+})
+
+//form validations
+function validateLogin(){
+    let userName = document.getElementById('user1').value;
+    let password = document.getElementById('pass1').value;
+    if(userName==""){
+        document.getElementById('user1').setAttribute('placeholder', 'Please enter Username')
+        document.getElementById('user1').style="border-bottom: 2px solid red;"
+    }else if(password.length<6){
+        document.getElementById('pass1').setAttribute('placeholder', 'Please enter Password ')
+        document.getElementById('pass1').style="border-bottom: 2px solid red;"
+        alert('Pass word should be atleast 6 characters');
+    }else{
+        change();
+    }
+
+}
+function validateSignup(){
+    let userName2 = document.getElementById('user2').value;
+    let password2 = document.getElementById('pass2').value;
+    let emailValue = document.getElementById('email').value;
+    let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    if(userName2==""){
+        document.getElementById('user2').setAttribute('placeholder', 'Please enter Username')
+        document.getElementById('user2').style="border-bottom: 2px solid red;"
+    }else if(emailPattern.test(emailValue)== false){
+        document.getElementById('email').setAttribute('placeholder', 'Enter Valid Password')
+        document.getElementById('email').style="border-bottom: 2px solid red;"
+    }else if(password2.length<6){
+        document.getElementById('pass2').setAttribute('placeholder', 'Please enter Password')
+        document.getElementById('pass2').style="border-bottom: 2px solid red;"
+        alert('Pass word should be atleast 6 characters');
+    }else{
+        change();
+    }
+}
+
+
 //movie panel height
 let panel_height = document.getElementById('movie-panel-1').offsetHeight;
 document.getElementById('movie-panels').style=`height:${panel_height}px;`
@@ -79,7 +123,7 @@ function change2(){
 
 // Adding and Removing to and from A movie cart
 
-function cart(Movie_name){
+function cart(Movie_name,btn_id){
     //creating a template for the each element added to cart
      let parent = document.createElement("div");
      let text = document.createElement('h1');
@@ -88,7 +132,7 @@ function cart(Movie_name){
      let H2 = document.createElement('h2');
      let remove_text = document.createTextNode('Remove');
      
-     removeMovie.id="remove"
+     removeMovie.id='remove';
      H2.appendChild(remove_text);
      text.appendChild(name);
      removeMovie.appendChild(H2);
@@ -98,11 +142,30 @@ function cart(Movie_name){
      H2.style="color:red;"
      removeMovie.style="border-radius:5px; cursor:pointer; border:3px solid grey; padding:6px;"
      text.style="border-right:5px solid teal; padding-right:50px;"
-     removeMovie.addEventListener('click',()=>parent.style="display:none");
+     
+     removeMovie.addEventListener('click',()=>{
+        setInterval(()=>{
+            document.getElementById(btn_id).style="pointer-events:none;"
+            document.getElementById(btn_id).innerHTML = '<i class="fas fa-cart-plus"></i>';
+        },100);
+        parent.style="display:none;"
+        });
      parent.style=" display:flex; justify-content:space-around;  align-items:center; height:70px; "
      document.getElementById("Added").appendChild(parent);
+     setInterval(()=>{
+        document.getElementById(btn_id).style="pointer-events:none;";
+        document.getElementById(btn_id).innerHTML = '<i class="far fa-check-circle"></i>';
+     },0);
+
+     
      
 }
+
+
+
+    
+
+
 
 //sliding between welcome page and the library
 let Library= document.getElementById("video_Lib");
@@ -123,10 +186,45 @@ function change1(){
 
 
 // geting the UserName
-let user = document.getElementById("user");
+let user_login = document.getElementById("user1");
+let user_signup = document.getElementById("user2");
 let people = []
 
 function user_name(){
-    people.push(user.value);
-    document.getElementById("a/c").innerText = `User: ${people[0]}`; 
+    people.push(user_login.value);
+    people.push(user_signup.value);
+    document.getElementById("a/c").innerText = `  ${people[0]}`; 
+}
+
+
+
+
+// search Algorithm 
+let movielistArr = document.getElementsByClassName('movie-description')
+document.getElementById('search-input').addEventListener('keyup',(e)=>{
+    Array.from(movielistArr).forEach((movie)=>{
+       let movie_name = movie.firstElementChild.innerText;
+        if(movie_name.toLowerCase().indexOf(e.target.value) != -1){
+            movie.parentNode.parentNode.style.display = "flex";
+        }else{
+            movie.parentNode.parentNode.style.display = "none";
+        }
+        
+    });
+});
+
+//like algorithm
+function like(id){
+    let text = document.getElementById(id).innerText;
+    let likes = Number(text) + 1;
+    document.getElementById(id).innerText = likes;
+}
+
+// movie popup
+function vidlink(id,src){
+    document.getElementById('iframe').setAttribute('src',src);
+    $(id).magnificPopup({
+        type:'inline',
+        midClick:true
+    })
 }
